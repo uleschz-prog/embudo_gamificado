@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const WHATSAPP_URL =
@@ -244,13 +243,6 @@ export default function App() {
       >
         Subir 3 videos
       </button>
-
-      <Link
-        href="/genealogia-fan"
-        className="absolute right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-40 rounded-full border border-white/15 bg-black/55 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-violet-200 backdrop-blur-md transition hover:border-violet-400/45 hover:bg-black/70"
-      >
-        Cuadro en abanico
-      </Link>
 
       {panelOpen && (
         <div
