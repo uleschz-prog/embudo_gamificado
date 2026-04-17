@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* Aqui eliminamos cualquier mencion a turbo */
+  /* Aquí eliminamos cualquier mención a turbo */
   typescript: {
     ignoreBuildErrors: true,
   },
