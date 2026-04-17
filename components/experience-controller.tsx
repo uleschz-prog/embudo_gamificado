@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useCallback } from "react"
+import { medios } from "@/lib/medios"
 import { IncomingCall } from "@/components/experiences/incoming-call"
 import { HackerScanner } from "@/components/experiences/hacker-scanner"
 import { WhatsAppChat } from "@/components/experiences/whatsapp-chat"
@@ -19,7 +20,7 @@ type ExperienceScreen =
 
 // WhatsApp message sequences
 const PATTERN_MESSAGES = [
-  { id: 1, audioSrc: "/audio/whatsapp-message-1.wav", audioDuration: "0:15", delay: 2000, waitForAudioEnd: true },
+  { id: 1, audioSrc: medios.vozMensaje1, audioDuration: "0:15", delay: 2000, waitForAudioEnd: true },
   { id: 2, text: "Vamos a clasificarte...", delay: 1500 },
   { id: 3, text: "Esto define si puedes avanzar", delay: 1500 },
   { id: 4, text: "Elige lo que más se acerca a ti:", delay: 1500 },
@@ -34,7 +35,7 @@ const QUIZ_OPTIONS_INLINE = [
 const POST_VSL_MESSAGES = [
   {
     id: 1,
-    audioSrc: "/audio/whatsapp-post-vsl.wav",
+    audioSrc: medios.vozPostVsl,
     audioDuration: "0:20",
     delay: 1500,
     waitForAudioEnd: true,
@@ -61,7 +62,7 @@ export function ExperienceController() {
       {currentScreen === "whatsapp-pattern" && (
         <WhatsAppChat
           contactName="Asesor Raiz"
-          contactImage="/images/logo.png"
+          contactImage={medios.fotoAsesor}
           messages={PATTERN_MESSAGES}
           onComplete={() => handleScreenComplete("player")}
           options={QUIZ_OPTIONS_INLINE}
@@ -76,7 +77,7 @@ export function ExperienceController() {
       {currentScreen === "whatsapp-post-vsl" && (
         <WhatsAppChat
           contactName="Asesor Raiz"
-          contactImage="/images/logo.png"
+          contactImage={medios.fotoAsesor}
           messages={POST_VSL_MESSAGES}
           onComplete={() => handleScreenComplete("feed")}
           enableInput

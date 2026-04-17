@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react"
 import { Phone, PhoneOff, User } from "lucide-react"
+import { medios } from "@/lib/medios"
 
 interface IncomingCallProps {
   onComplete: () => void
@@ -18,7 +19,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
   // Play ringtone during incoming state
   useEffect(() => {
     if (callState === "incoming") {
-      incomingRingtoneRef.current = new Audio("/audio/notificacion.mp3")
+      incomingRingtoneRef.current = new Audio(medios.notificacion)
       incomingRingtoneRef.current.loop = true
       void incomingRingtoneRef.current.play().then(
         () => setNeedsAudioUnlock(false),
@@ -43,7 +44,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
         incomingRingtoneRef.current = null
       }
       // Play call audio
-      audioRef.current = new Audio("/audio/notificacion.mp3")
+      audioRef.current = new Audio(medios.notificacion)
       void audioRef.current.play().catch(() => setNeedsAudioUnlock(true))
     }
 
