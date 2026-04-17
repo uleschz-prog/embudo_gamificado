@@ -12,9 +12,10 @@ function assetUrl(rutaAbsoluta: string): string {
 
 export const medios = {
   logo: assetUrl("/images/logo.png"),
-  fotoAsesor: assetUrl("/images/asesor-raiz.png"),
+  /** Misma imagen que el logo si no hay foto aparte en /public */
+  fotoAsesor: assetUrl("/images/logo.png"),
   videoFeed1: assetUrl("/videos/feed-1.mp4"),
   notificacion: assetUrl("/audio/notificacion.mp3"),
-  vozMensaje1: assetUrl("/audio/voz-mensaje-1.wav"),
-  vozPostVsl: assetUrl("/audio/voz-post-vsl.wav"),
+  vozMensaje1: assetUrl("/audio/whatsapp-message-1.wav"),
+  vozPostVsl: assetUrl("/audio/whatsapp-post-vsl.wav"),
 } as const
