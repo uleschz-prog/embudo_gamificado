@@ -19,7 +19,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
   // Play ringtone during incoming state
   useEffect(() => {
     if (callState === "incoming") {
-      incomingRingtoneRef.current = new Audio(medios.notificacion)
+      incomingRingtoneRef.current = new Audio(medios.tonoLlamadaEntrante)
       incomingRingtoneRef.current.loop = true
       void incomingRingtoneRef.current.play().then(
         () => setNeedsAudioUnlock(false),
@@ -44,7 +44,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
         incomingRingtoneRef.current = null
       }
       // Play call audio
-      audioRef.current = new Audio(medios.notificacion)
+      audioRef.current = new Audio(medios.tonoLlamadaActiva)
       void audioRef.current.play().catch(() => setNeedsAudioUnlock(true))
     }
 

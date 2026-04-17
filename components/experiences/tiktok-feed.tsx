@@ -31,7 +31,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 1,
     username: "carlos_martinez99",
-    avatar: medios.logo,
+    avatar: medios.avatarCarlos,
     text: "Esto me abrió los ojos... nunca lo había visto así",
     likes: "2.4K",
     time: "2h",
@@ -39,7 +39,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 2,
     username: "ana.digital",
-    avatar: medios.logo,
+    avatar: medios.avatarAna,
     text: "Llevo 3 semanas aplicando esto y ya veo resultados",
     likes: "1.8K",
     time: "4h",
@@ -47,7 +47,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 3,
     username: "emprendedor_mx",
-    avatar: medios.logo,
+    avatar: medios.avatarEmprendedor,
     text: "El mejor contenido que he visto en mucho tiempo",
     likes: "956",
     time: "6h",
@@ -55,7 +55,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 4,
     username: "lucia_fernandez",
-    avatar: medios.logo,
+    avatar: medios.avatarLucia,
     text: "Necesito más información, dónde puedo aprender más?",
     likes: "743",
     time: "8h",
@@ -63,7 +63,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 5,
     username: "mindset_warrior",
-    avatar: medios.logo,
+    avatar: medios.avatarMindset,
     text: "Esto es exactamente lo que necesitaba escuchar hoy",
     likes: "512",
     time: "12h",
@@ -265,7 +265,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
               ref={reelVideoRef}
               className="absolute inset-0 z-0 h-full w-full object-cover object-center"
               src={currentVideo.videoSrc}
-              poster={currentVideo.poster ?? medios.fotoAsesor}
+              poster={currentVideo.poster ?? medios.fotoReel}
               playsInline
               muted={reelMuted}
               loop
@@ -339,7 +339,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
             )}
           >
             <img 
-              src={medios.fotoAsesor} 
+              src={medios.fotoReel} 
               alt="Asesor Raiz"
               className="h-full w-full object-cover"
             />
@@ -429,7 +429,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <img 
-              src={medios.fotoAsesor} 
+              src={medios.fotoReel} 
               alt="Asesor Raiz"
               className="h-8 w-8 rounded-full object-cover ring-2 ring-white/20"
             />
