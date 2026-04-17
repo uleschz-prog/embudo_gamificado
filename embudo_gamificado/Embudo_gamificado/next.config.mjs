@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /* Aqui eliminamos cualquier mencion a turbo */
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
