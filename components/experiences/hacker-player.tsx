@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Lock, Play } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Lock } from "lucide-react"
+import { medios } from "@/lib/medios"
 
 interface HackerPlayerProps {
   onComplete: () => void
@@ -18,6 +19,7 @@ export function HackerPlayer({ onComplete }: HackerPlayerProps) {
   const [showCursor, setShowCursor] = useState(true)
   const [animatedProgress, setAnimatedProgress] = useState(0)
   const [showPlayer, setShowPlayer] = useState(false)
+  const didCompleteRef = useRef(false)
 
   // Cursor blink
   useEffect(() => {
@@ -31,8 +33,7 @@ export function HackerPlayer({ onComplete }: HackerPlayerProps) {
   useEffect(() => {
     if (currentPhase >= PHASES.length) {
       setShowPlayer(true)
-      const timeout = setTimeout(onComplete, 2000)
-      return () => clearTimeout(timeout)
+      return
     }
 
     const phase = PHASES[currentPhase]
@@ -62,6 +63,12 @@ export function HackerPlayer({ onComplete }: HackerPlayerProps) {
       clearTimeout(phaseTimeout)
     }
   }, [currentPhase, onComplete])
+
+  const handleContinue = () => {
+    if (didCompleteRef.current) return
+    didCompleteRef.current = true
+    onComplete()
+  }
 
   return (
     <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden bg-background p-6">
@@ -100,19 +107,26 @@ export function HackerPlayer({ onComplete }: HackerPlayerProps) {
         </div>
       ) : (
         <div className="z-10 flex w-full max-w-md flex-col items-center gap-4">
-          {/* Video player placeholder */}
           <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-primary/30 bg-card">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-                <Play className="h-8 w-8 text-primary" fill="currentColor" />
-              </div>
-            </div>
-            {/* Glitch effect */}
-            <div className="animate-glitch pointer-events-none absolute inset-0 bg-primary/5" />
+            <video
+              className="h-full w-full object-cover"
+              src={medios.videoVsl}
+              controls
+              playsInline
+              preload="auto"
+              onEnded={handleContinue}
+            />
           </div>
           <span className="font-mono text-xs text-muted-foreground">
-            ARCHIVO_RESTRINGIDO.mp4
+            manifiesto_raiz.mp4
           </span>
+          <button
+            type="button"
+            onClick={handleContinue}
+            className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20"
+          >
+            Continuar
+          </button>
         </div>
       )}
     </div>

@@ -22,6 +22,9 @@ export const medios = {
   /** Primer reel a pantalla completa (nombre con espacio → %20) */
   videoFeed1: assetUrl("/videos/Untitled%20Video_720p.mp4"),
 
+  /** Video VSL del embudo (pantalla "archivo restringido") */
+  videoVsl: assetUrl("/videos/manifiesto_raiz.mp4"),
+
   /** Tono en bucle antes de contestar la llamada */
   tonoLlamadaEntrante: assetUrl("/audio/incoming-ringtone.mp3"),
 
