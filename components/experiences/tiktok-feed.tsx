@@ -225,6 +225,10 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
     setReelMuted((m) => !m)
   }, [])
 
+  const activateReelSound = useCallback(() => {
+    setReelMuted(false)
+  }, [])
+
   if (!VIDEOS.length || !currentVideo) {
     return (
       <div className="flex min-h-dvh w-full items-center justify-center bg-background text-muted-foreground">
@@ -249,6 +253,9 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
       {/* Capa principal: video a todo el viewport (estilo TikTok) */}
       <div
         className={cn("absolute inset-0 z-0", showGlitch && "animate-glitch")}
+        onClick={() => {
+          if (onReelVideo && reelMuted) activateReelSound()
+        }}
       >
         {showReelVideo && currentVideo.videoSrc ? (
           <>
@@ -297,6 +304,19 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
             </h1>
             <div className="mt-4 h-px w-16 bg-primary/50" />
           </div>
+        ) : null}
+
+        {onReelVideo && reelMuted ? (
+          <button
+            type="button"
+            className="absolute left-4 top-4 z-10 rounded-full border border-white/30 bg-black/45 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              activateReelSound()
+            }}
+          >
+            Toca para activar sonido
+          </button>
         ) : null}
 
         {!onReelVideo ? (
