@@ -110,7 +110,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
   }
 
   return (
-    <div className={`relative flex min-h-dvh w-full flex-col items-center justify-between overflow-hidden bg-[#0a0a0a] ${showGlitch ? "animate-glitch" : ""}`}>
+    <div className={`relative flex h-full w-full flex-col items-center justify-between overflow-hidden bg-[#0a0a0a] ${showGlitch ? "animate-glitch" : ""}`}>
       {/* Green line accent at top */}
       <div className="absolute left-0 right-0 top-[180px] h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       

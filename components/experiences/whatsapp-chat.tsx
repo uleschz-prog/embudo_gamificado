@@ -205,7 +205,7 @@ export function WhatsAppChat({
   }
 
   return (
-    <div className="flex min-h-dvh w-full flex-col bg-background">
+    <div className="flex h-full w-full flex-col bg-background">
       {/* Header */}
       <header className="flex items-center gap-3 border-b border-border bg-card px-4 py-3">
         <button className="text-muted-foreground hover:text-foreground">

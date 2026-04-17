@@ -59,11 +59,11 @@ export function SalesPage() {
   ]
 
   return (
-    <div className="min-h-dvh w-full bg-background">
+    <div className="h-full w-full bg-background">
       {/* Hero */}
       <section
         ref={(el) => { sectionsRef.current[0] = el }}
-        className="flex min-h-dvh flex-col items-center justify-center px-6 py-20 text-center duration-700"
+        className="flex h-full flex-col items-center justify-center px-6 py-20 text-center duration-700"
       >
         <div className="max-w-2xl">
           <span className="mb-4 inline-block rounded-full border border-primary/30 px-4 py-1 text-xs font-medium uppercase tracking-wider text-primary">

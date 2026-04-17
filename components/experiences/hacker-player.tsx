@@ -64,7 +64,7 @@ export function HackerPlayer({ onComplete }: HackerPlayerProps) {
   }, [currentPhase, onComplete])
 
   return (
-    <div className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden bg-background p-6">
+    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden bg-background p-6">
       {/* Scanline */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="animate-scanline absolute left-0 right-0 h-px bg-primary/20" />

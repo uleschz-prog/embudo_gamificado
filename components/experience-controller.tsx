@@ -50,7 +50,10 @@ export function ExperienceController() {
   }, [])
 
   return (
-    <main className="min-h-dvh w-full overflow-x-hidden">
+    <main className="flex min-h-dvh w-full items-center justify-center overflow-hidden bg-black sm:p-4">
+      <section
+        className="relative aspect-[9/16] h-auto w-[min(100vw,calc(100dvh*9/16))] max-h-dvh overflow-hidden bg-background sm:rounded-[2rem] sm:border sm:border-white/10 sm:shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_18px_60px_rgba(0,0,0,0.55)]"
+      >
       {currentScreen === "call" && (
         <IncomingCall onComplete={() => handleScreenComplete("scanner")} />
       )}
@@ -90,6 +93,7 @@ export function ExperienceController() {
       )}
 
       {currentScreen === "sales" && <SalesPage />}
+      </section>
     </main>
   )
 }

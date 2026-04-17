@@ -232,7 +232,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
 
   if (!VIDEOS.length || !currentVideo) {
     return (
-      <div className="flex min-h-dvh w-full items-center justify-center bg-background text-muted-foreground">
+      <div className="flex h-full w-full items-center justify-center bg-background text-muted-foreground">
         Sin reels configurados
       </div>
     )
@@ -244,7 +244,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
     <div
       ref={containerRef}
       className={cn(
-        "relative h-dvh max-h-dvh w-full overflow-hidden",
+        "relative h-full max-h-full w-full overflow-hidden",
         onReelVideo ? "bg-black" : "bg-background"
       )}
       onTouchStart={handleTouchStart}
