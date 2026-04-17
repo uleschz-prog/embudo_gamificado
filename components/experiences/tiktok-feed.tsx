@@ -264,11 +264,12 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
               ref={reelVideoRef}
               className="absolute inset-0 z-0 h-full w-full object-cover object-center"
               src={currentVideo.videoSrc}
-              poster={currentVideo.poster}
+              poster={currentVideo.poster ?? "/images/logo.png"}
               playsInline
               muted={reelMuted}
               loop
               autoPlay
+              preload="auto"
               onError={() => setReelVideoFailed(true)}
             />
             {/* Lectura tipo TikTok: más contraste abajo + viñeta suave arriba */}

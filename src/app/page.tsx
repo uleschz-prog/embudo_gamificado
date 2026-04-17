@@ -1,9 +1,5 @@
-import App from "@/App";
+import { ExperienceController } from "@/components/experience-controller";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-[100dvh] min-h-screen w-full flex-1 flex-col">
-      <App />
-    </main>
-  );
+  return <ExperienceController />;
 }

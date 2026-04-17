@@ -11,6 +11,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
   const [callState, setCallState] = useState<"incoming" | "active" | "ending">("incoming")
   const [timer, setTimer] = useState(0)
   const [showGlitch, setShowGlitch] = useState(false)
+  const [needsAudioUnlock, setNeedsAudioUnlock] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const incomingRingtoneRef = useRef<HTMLAudioElement | null>(null)
 
@@ -19,9 +20,10 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
     if (callState === "incoming") {
       incomingRingtoneRef.current = new Audio("/audio/notificacion.mp3")
       incomingRingtoneRef.current.loop = true
-      incomingRingtoneRef.current.play().catch(() => {
-        // Autoplay may be blocked
-      })
+      void incomingRingtoneRef.current.play().then(
+        () => setNeedsAudioUnlock(false),
+        () => setNeedsAudioUnlock(true),
+      )
     }
 
     return () => {
@@ -42,9 +44,7 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
       }
       // Play call audio
       audioRef.current = new Audio("/audio/notificacion.mp3")
-      audioRef.current.play().catch(() => {
-        // Autoplay may be blocked
-      })
+      void audioRef.current.play().catch(() => setNeedsAudioUnlock(true))
     }
 
     return () => {
@@ -98,6 +98,16 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
     onComplete()
   }
 
+  const unlockCallAudio = () => {
+    if (callState === "incoming") {
+      const a = incomingRingtoneRef.current
+      if (a) void a.play().then(() => setNeedsAudioUnlock(false), () => setNeedsAudioUnlock(true))
+    } else if (callState === "active") {
+      const a = audioRef.current
+      if (a) void a.play().then(() => setNeedsAudioUnlock(false), () => setNeedsAudioUnlock(true))
+    }
+  }
+
   return (
     <div className={`relative flex min-h-dvh w-full flex-col items-center justify-between overflow-hidden bg-[#0a0a0a] ${showGlitch ? "animate-glitch" : ""}`}>
       {/* Green line accent at top */}
@@ -108,6 +118,15 @@ export function IncomingCall({ onComplete }: IncomingCallProps) {
         <span className="text-sm font-medium uppercase tracking-[0.3em] text-muted-foreground">
           Llamada entrante
         </span>
+        {needsAudioUnlock && (callState === "incoming" || callState === "active") ? (
+          <button
+            type="button"
+            onClick={unlockCallAudio}
+            className="rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-medium text-primary backdrop-blur-sm transition hover:bg-primary/20"
+          >
+            Toca para activar el sonido
+          </button>
+        ) : null}
         {callState === "active" && (
           <span className="font-mono text-2xl tabular-nums text-primary">
             {formatTime(timer)}
