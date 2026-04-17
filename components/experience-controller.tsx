@@ -61,7 +61,7 @@ export function ExperienceController() {
       {currentScreen === "whatsapp-pattern" && (
         <WhatsAppChat
           contactName="Asesor Raiz"
-          contactImage="/images/asesor-raiz.jpg"
+          contactImage="/images/logo.png"
           messages={PATTERN_MESSAGES}
           onComplete={() => handleScreenComplete("player")}
           options={QUIZ_OPTIONS_INLINE}
@@ -76,7 +76,7 @@ export function ExperienceController() {
       {currentScreen === "whatsapp-post-vsl" && (
         <WhatsAppChat
           contactName="Asesor Raiz"
-          contactImage="/images/asesor-raiz.jpg"
+          contactImage="/images/logo.png"
           messages={POST_VSL_MESSAGES}
           onComplete={() => handleScreenComplete("feed")}
           enableInput

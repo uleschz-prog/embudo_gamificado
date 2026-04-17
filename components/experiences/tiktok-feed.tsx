@@ -30,7 +30,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 1,
     username: "carlos_martinez99",
-    avatar: "/images/avatar-carlos.jpg",
+    avatar: "/images/logo.png",
     text: "Esto me abrió los ojos... nunca lo había visto así",
     likes: "2.4K",
     time: "2h",
@@ -38,7 +38,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 2,
     username: "ana.digital",
-    avatar: "/images/avatar-ana.jpg",
+    avatar: "/images/logo.png",
     text: "Llevo 3 semanas aplicando esto y ya veo resultados",
     likes: "1.8K",
     time: "4h",
@@ -46,7 +46,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 3,
     username: "emprendedor_mx",
-    avatar: "/images/avatar-emprendedor.jpg",
+    avatar: "/images/logo.png",
     text: "El mejor contenido que he visto en mucho tiempo",
     likes: "956",
     time: "6h",
@@ -54,7 +54,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 4,
     username: "lucia_fernandez",
-    avatar: "/images/avatar-lucia.jpg",
+    avatar: "/images/logo.png",
     text: "Necesito más información, dónde puedo aprender más?",
     likes: "743",
     time: "8h",
@@ -62,7 +62,7 @@ const FAKE_COMMENTS: Comment[] = [
   {
     id: 5,
     username: "mindset_warrior",
-    avatar: "/images/avatar-mindset.jpg",
+    avatar: "/images/logo.png",
     text: "Esto es exactamente lo que necesitaba escuchar hoy",
     likes: "512",
     time: "12h",
@@ -337,7 +337,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
             )}
           >
             <img 
-              src="/images/asesor-raiz.jpg" 
+              src="/images/logo.png" 
               alt="Asesor Raiz"
               className="h-full w-full object-cover"
             />
@@ -427,7 +427,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <img 
-              src="/images/asesor-raiz.jpg" 
+              src="/images/logo.png" 
               alt="Asesor Raiz"
               className="h-8 w-8 rounded-full object-cover ring-2 ring-white/20"
             />
@@ -632,7 +632,7 @@ export function TikTokFeed({ onComplete }: TikTokFeedProps) {
             <div className="flex items-center gap-3 border-t border-border p-4">
               <div className="h-8 w-8 overflow-hidden rounded-full">
                 <img 
-                  src="/images/asesor-raiz.jpg" 
+                  src="/images/logo.png" 
                   alt="Tu perfil"
                   className="h-full w-full object-cover"
                 />
